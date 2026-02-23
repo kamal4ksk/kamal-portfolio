@@ -4,7 +4,7 @@ import "./App.css";
 import { useMotionValue, useSpring } from "framer-motion";
 
 export default function App() {
-
+const [menuOpen, setMenuOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const buttonRef = useRef(null);
   const { scrollY } = useScroll();
@@ -70,24 +70,36 @@ const [showSocials, setShowSocials] = useState(false);
     <div className="app">
 
 
-      {/* NAVBAR */}
-<nav className="navbar">
+      {/* NAVBAR */}<nav className="navbar">
   <div className="nav-container">
-<a
-  href="#home"
-  className="nav-logo"
-  onClick={(e) => handleNavClick(e, "home")}
->
-  K
-</a>
-   <ul className="nav-links">
-  <li><a href="#about">About</a></li>
-  <li><a href="#skills">Skills</a></li>
-  <li><a href="#projects">Projects</a></li>
-  <li><a href="#experience">Experience</a></li>
-  <li><a href="#education">Education</a></li>
-  <li><a href="#contact">Contact</a></li>
-</ul>
+
+    <a
+      href="#home"
+      className="nav-logo"
+      onClick={(e) => handleNavClick(e, "home")}
+    >
+      K
+    </a>
+
+    <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
+      <li><a href="#about" onClick={(e)=>handleNavClick(e,"about")}>About</a></li>
+      <li><a href="#skills" onClick={(e)=>handleNavClick(e,"skills")}>Skills</a></li>
+      <li><a href="#projects" onClick={(e)=>handleNavClick(e,"projects")}>Projects</a></li>
+      <li><a href="#experience" onClick={(e)=>handleNavClick(e,"experience")}>Experience</a></li>
+      <li><a href="#education" onClick={(e)=>handleNavClick(e,"education")}>Education</a></li>
+      <li><a href="#contact" onClick={(e)=>handleNavClick(e,"contact")}>Contact</a></li>
+    </ul>
+
+    {/* Hamburger (only visible on mobile) */}
+    <div
+      className={`hamburger ${menuOpen ? "open" : ""}`}
+      onClick={() => setMenuOpen(!menuOpen)}
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
   </div>
 </nav>
 
