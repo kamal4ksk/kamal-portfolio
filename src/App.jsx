@@ -273,17 +273,25 @@ Seeking a challenging role to contribute technical expertise and deliver measura
         <div className="container">
           <h2>Experience</h2>
           <div className="timeline">
+             <div className="timeline-item">
+              <h3>PYTHON AND MACHINE LEARNING Intern</h3>
+              <p>Learned Python and Machine Learning concepts and built small projects.</p>
+              <p>ATMIOS TECHNOLOGIES AND SOFTWARE SOLUTIONS, KOCHI - 26.04.2023 to 26.05.2023</p>
+            </div>
             <div className="timeline-item">
               <h3>MERN STACK Intern</h3>
               <p>Built scalable React applications.</p>
+              <p>CELLAR INNOVATIVE DEVELOPERS, ALUVA - 23.04.2024 to 23.05.2024</p>
             </div>
             <div className="timeline-item">
               <h3>Futter Intern</h3>
               <p>Built scalable mobile applications using Flutter and Dart.</p>
+              <p>CELLAR INNOVATIVE DEVELOPERS, ALUVA - 10.02.2025 to 10.03.2025</p>
             </div>
           </div>
         </div>
-      </section>
+      </section> 
+      
 
       {/* EDUCATION */}
       <section className="section" id="education">
@@ -291,12 +299,12 @@ Seeking a challenging role to contribute technical expertise and deliver measura
           <h2>Education</h2>
           <div className="card">
             <h3>Bachelor’s Degree</h3>
-            <p>B VOC Software Development and System Adminstration</p>
-            <p>Mahathma Gandhi University</p>
+            <p>B VOC Software Development and System Adminstration  (2022-2025)</p>
+            <p>Mahathma Gandhi University </p>
           </div>
           <div className="card">
             <h3>Post Graduation Degree</h3>
-            <p>M VOC Software Application Development </p>
+            <p>M VOC Software Application Development  (2025-2027)</p>
             <p>Cochin University and Science and Technology</p>
           </div>
         </div>
