@@ -2,6 +2,7 @@ import React, { useState, useEffect ,useRef  } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import "./App.css";
 import { useMotionValue, useSpring } from "framer-motion";
+import { Analytics } from "@vercel/analytics/next"
 
 export default function App() {
 const [menuOpen, setMenuOpen] = useState(false);
@@ -65,6 +66,19 @@ const handleMouseLeave = () => {
 };
 
 const [showSocials, setShowSocials] = useState(false);
+
+// section animation
+const sectionAnimation = {
+  hidden: { opacity: 0, y: 80 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut"
+    }
+  }
+};
 
   return (
     <div className="app">
@@ -199,21 +213,38 @@ const [showSocials, setShowSocials] = useState(false);
 
 
       {/* ABOUT */}
-      <section className="section" id="about">
-        <div className="container">
-          <h2>About</h2>
-          <p>
-           Software Developer with proven experience in web development, mobile application development, 
-React.js, programming, and database management. Strong background in problem-solving, 
-collaborating with cross functional teams, and adopting new technologies. Skilled in developing user
-centric, high-performance applications to improve operational efficiency and support business goals. 
-Seeking a challenging role to contribute technical expertise and deliver measurable results. 
-          </p>
-        </div>
-      </section>
+      <motion.section
+  className="section"
+  id="about"
+  variants={sectionAnimation}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+>
+
+<div className="container">
+
+<h2>About</h2>
+
+<p>
+Software Developer with proven experience in web development,
+mobile application development, React.js, programming, and
+database management.
+</p>
+
+</div>
+
+</motion.section>
 
       {/* SKILLS */}
-      <section className="section dark" id="skills">
+     <motion.section
+  className="section dark"
+  id="skills"
+  variants={sectionAnimation}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+>
         <div className="container">
           <h2>Skills</h2>
           <div className="grid">
@@ -222,10 +253,17 @@ Seeking a challenging role to contribute technical expertise and deliver measura
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* PROJECTS */}
-<section className="section" id="projects">
+<motion.section
+  className="section"
+  id="projects"
+  variants={sectionAnimation}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+>
   <div className="container">
     <h2>Projects</h2>
 
@@ -266,10 +304,17 @@ Seeking a challenging role to contribute technical expertise and deliver measura
       ))}
     </div>
   </div>
-</section>
+</motion.section>
 
       {/* EXPERIENCE */}
-      <section className="section dark"   id="experience">
+     <motion.section
+  className="section dark"
+  id="experience"
+  variants={sectionAnimation}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+>
         <div className="container">
           <h2>Experience</h2>
           <div className="timeline">
@@ -290,11 +335,18 @@ Seeking a challenging role to contribute technical expertise and deliver measura
             </div>
           </div>
         </div>
-      </section> 
+      </motion.section> 
       
 
       {/* EDUCATION */}
-      <section className="section" id="education">
+      <motion.section
+  className="section"
+  id="education"
+  variants={sectionAnimation}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+>
         <div className="container">
           <h2>Education</h2>
           <div className="card">
@@ -308,11 +360,17 @@ Seeking a challenging role to contribute technical expertise and deliver measura
             <p>Cochin University and Science and Technology</p>
           </div>
         </div>
-      </section>
+      </motion.section>
 
 {/* CONTACT */}
-<section className="contact" id="contact">
-  <div className="contact-center">
+<motion.section
+  className="section"
+  id="education"
+  variants={sectionAnimation}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+>  <div className="contact-center">
 
     <div className="button-container">
 
@@ -361,7 +419,7 @@ const offsetX = (i - (arr.length - 1) / 2) * spacing - 35;
 
     </div>
   </div>
-</section>
+</motion.section>
     </div>
   );
 }
