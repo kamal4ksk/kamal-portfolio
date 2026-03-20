@@ -2,21 +2,30 @@ import React, { useState, useEffect ,useRef  } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import "./App.css";
 import { useMotionValue, useSpring } from "framer-motion";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react";
 
 export default function App() {
-const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [loading, setLoading] = useState(true);
-  const buttonRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   const { scrollY } = useScroll();
   const yText = useTransform(scrollY, [0, 500], [0, -80]);
   const yImage = useTransform(scrollY, [0, 500], [0, -120]);
 
 const shape1Y = useTransform(scrollY, [0, 600], [0, -200]);
 const shape1X = useTransform(scrollY, [0, 600], [0, 80]);
+const shape1Rotate = useTransform(scrollY, [0, 600], [15, 120]);
 
 const shape2Y = useTransform(scrollY, [0, 600], [0, 250]);
 const shape2X = useTransform(scrollY, [0, 600], [0, -120]);
+const shape2Rotate = useTransform(scrollY, [0, 600], [-20, -140]);
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 3000);
@@ -67,15 +76,24 @@ const handleMouseLeave = () => {
 
 const [showSocials, setShowSocials] = useState(false);
 
-// section animation
+const handleNavClick = (e, targetId) => {
+  e.preventDefault();
+  const target = document.getElementById(targetId);
+  if (target) {
+    target.scrollIntoView({ behavior: "smooth" });
+  }
+  setMenuOpen(false);
+};
+
+// section pop-up animation
 const sectionAnimation = {
-  hidden: { opacity: 0, y: 80 },
+  hidden: { opacity: 0, scale: 0.5 },
   visible: {
     opacity: 1,
-    y: 0,
+    scale: 1,
     transition: {
-      duration: 0.8,
-      ease: "easeOut"
+      duration: 0.9,
+      ease: [0.175, 0.885, 0.32, 1.25] // highly visible springy easeOutBack
     }
   }
 };
@@ -166,7 +184,8 @@ const sectionAnimation = {
   className="glass glass-1"
   style={{
     y: shape1Y,
-    x: shape1X
+    x: shape1X,
+    rotate: shape1Rotate
   }}
 />
 
@@ -174,7 +193,8 @@ const sectionAnimation = {
   className="glass glass-2"
   style={{
     y: shape2Y,
-    x: shape2X
+    x: shape2X,
+    rotate: shape2Rotate
   }}
 />
 
@@ -219,7 +239,7 @@ const sectionAnimation = {
   variants={sectionAnimation}
   initial="hidden"
   whileInView="visible"
-  viewport={{ once: true }}
+  viewport={{ once: false, amount: 0.2 }}
 >
 
 <div className="container">
@@ -243,7 +263,7 @@ database management.
   variants={sectionAnimation}
   initial="hidden"
   whileInView="visible"
-  viewport={{ once: true }}
+  viewport={{ once: false, amount: 0.2 }}
 >
         <div className="container">
           <h2>Skills</h2>
@@ -262,7 +282,7 @@ database management.
   variants={sectionAnimation}
   initial="hidden"
   whileInView="visible"
-  viewport={{ once: true }}
+  viewport={{ once: false, amount: 0.2 }}
 >
   <div className="container">
     <h2>Projects</h2>
@@ -313,7 +333,7 @@ database management.
   variants={sectionAnimation}
   initial="hidden"
   whileInView="visible"
-  viewport={{ once: true }}
+  viewport={{ once: false, amount: 0.2 }}
 >
         <div className="container">
           <h2>Experience</h2>
@@ -345,7 +365,7 @@ database management.
   variants={sectionAnimation}
   initial="hidden"
   whileInView="visible"
-  viewport={{ once: true }}
+  viewport={{ once: false, amount: 0.2 }}
 >
         <div className="container">
           <h2>Education</h2>
@@ -365,11 +385,11 @@ database management.
 {/* CONTACT */}
 <motion.section
   className="section"
-  id="education"
+  id="contact"
   variants={sectionAnimation}
   initial="hidden"
   whileInView="visible"
-  viewport={{ once: true }}
+  viewport={{ once: false, amount: 0.2 }}
 >  <div className="contact-center">
 
     <div className="button-container">
@@ -389,8 +409,8 @@ database management.
         { icon: "fa-brands fa-x-twitter", link: "https://x.com/Kamal85191783" }
       ].map((item, i, arr) => {
 
-        const spacing = 80;
-const offsetX = (i - (arr.length - 1) / 2) * spacing - 35;
+        const spacing = isMobile ? 60 : 80;
+        const offsetX = (i - (arr.length - 1) / 2) * spacing - (isMobile ? 20 : 35);
         return (
           <motion.a
             key={i}

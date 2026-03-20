@@ -22,7 +22,7 @@ html {
 /* App Wrapper */
 .app {
   width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* Splash */
@@ -381,6 +381,31 @@ h2 {
   .splash-title {
     font-size: 3rem;
   }
+
+  .section {
+    padding: 60px 15px;
+  }
+  
+  .hero-img {
+    width: 160px;
+  }
+
+  .glass-1 {
+    width: 120px;
+    height: 120px;
+  }
+
+  .glass-2 {
+    width: 90px;
+    height: 90px;
+    left: 2%;
+  }
+
+  .social-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
+  }
 }
 
 
@@ -405,18 +430,23 @@ h2 {
 /* Glass Floating Shapes */
 .glass {
   position: absolute;
-  backdrop-filter: blur(20px);
-  background: rgba(136, 136, 136, 0.067);
-  border: 1px solid rgba(145, 145, 145, 0.1);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 30px;
-  box-shadow: 0 30px 60px rgba(68, 68, 68, 0.144);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.4),
+    inset 0 0 20px rgba(255, 255, 255, 0.05);
   z-index: 1;
 }
 
 .glass-1 {
   width: 180px;
   height: 180px;
-  top: 15%;
+  top: 35%;
   right: 10%;
   transform: rotate(15deg);
 }
