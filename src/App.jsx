@@ -201,7 +201,7 @@ const sectionAnimation = {
 
 
   <motion.img
-    src="/kamal-avatar.png"
+    src="/dist/k.png"
     alt="Kamal"
     className="hero-img"
     style={{
@@ -244,12 +244,14 @@ const sectionAnimation = {
 
 <div className="container">
 
-<h2>About</h2>
+<h2>ABOUT</h2>
 
 <p>
-Software Developer with proven experience in web development,
-mobile application development, React.js, programming, and
-database management.
+Software Developer with hands-on experience in web and mobile application development, specializing in
+React.js, Node.js, and MERN stack development. Experienced in building responsive web applications,
+REST APIs, database-driven applications, and mobile applications using Flutter, Kotlin, C#, and MongoDB.
+Completed internships involving application development, API integration, database management, testing,
+and deployment.
 </p>
 
 </div>
@@ -266,9 +268,9 @@ database management.
   viewport={{ once: false, amount: 0.2 }}
 >
         <div className="container">
-          <h2>Skills</h2>
+          <h2>TECHNICAL SKILLS</h2>
           <div className="grid">
-            {["MERN Stack", "C & C++", "Flutter", "HTML & CSS","C#", "AWS", "Kotlin","Android Development"].map((s) => (
+            {["MERN Stack", "C & C++", "Flutter", "HTML & CSS","C#", "AWS", "Kotlin","Android Development","Swift.ui","ML","Python"].map((s) => (
               <div key={s} className="card">{s}</div>
             ))}
           </div>
@@ -285,7 +287,7 @@ database management.
   viewport={{ once: false, amount: 0.2 }}
 >
   <div className="container">
-    <h2>Projects</h2>
+    <h2>PROJECTS</h2>
 
     <div className="grid">
       {[
@@ -308,6 +310,11 @@ database management.
           title: "Portfolio Website",
           desc: "A responsive portfolio website.",
           github: "https://github.com/kamal4ksk/portfolio-"
+        }
+        ,{
+          title: "CIVICCARE – COMMUNITY CIVIC ISSUE REPORTING PLATFORM",
+          desc: "Developed a full-stack civic issue reporting platform using the MERN stack",
+          github: "https://github.com/kamal4ksk/CivicCare-Application"
         }
       ].map((project, index) => (
         <a
@@ -336,23 +343,34 @@ database management.
   viewport={{ once: false, amount: 0.2 }}
 >
         <div className="container">
-          <h2>Experience</h2>
+          <h2>EXPERIENCE</h2>
           <div className="timeline">
+             
+           <div className="timeline-item">
+              <h3>MERN Stack Developer Intern </h3>
+              <p>Developed and maintained web applications using MongoDB, Express.js, React.js, and Node.js (MERN Stack). Worked on application development, REST API integration, database management, testing, and deployment activities.</p>
+              <p>DRUV360° ENTREPRENEURS HUB, Ernakulam , May 2026 – June 2026  </p>
+            </div>
+            
              <div className="timeline-item">
+              <h3>React Project Development Intern</h3>
+              <p>Developed web application components using React.js and implemented responsive user interfaces.Worked on application development, debugging, and feature implementation.</p>
+              <p>CELLAR INNOVATIVE DEVELOPERS, Ernakulam - February 2024 to March 2024</p>
+            </div>
+
+            <div className="timeline-item">
+              <h3>Flutter Development Intern</h3>
+              <p>Developed mobile application features using Flutter and Dart. Worked on UI development, application functionality, debugging, and testing</p>
+              <p>CELLAR INNOVATIVE DEVELOPERS, Ernakulam , April 2024 - May 2024 </p>
+            </div>
+
+            <div className="timeline-item">
               <h3>PYTHON AND MACHINE LEARNING Intern</h3>
-              <p>Learned Python and Machine Learning concepts and built small projects.</p>
-              <p>ATMIOS TECHNOLOGIES AND SOFTWARE SOLUTIONS, KOCHI - 26.04.2023 to 26.05.2023</p>
+              <p>Applied Python programming and fundamental machine learning concepts to software development
+tasks. Gained practical experience in data processing, programming, and application development.</p>
+              <p>ATMIOS TECHNOLOGIES AND SOFTWARE SOLUTIONS, Ernakulam - April 2023 - May 2023</p>
             </div>
-            <div className="timeline-item">
-              <h3>MERN STACK Intern</h3>
-              <p>Built scalable React applications.</p>
-              <p>CELLAR INNOVATIVE DEVELOPERS, ALUVA - 23.04.2024 to 23.05.2024</p>
-            </div>
-            <div className="timeline-item">
-              <h3>Futter Intern</h3>
-              <p>Built scalable mobile applications using Flutter and Dart.</p>
-              <p>CELLAR INNOVATIVE DEVELOPERS, ALUVA - 10.02.2025 to 10.03.2025</p>
-            </div>
+
           </div>
         </div>
       </motion.section> 
@@ -368,7 +386,7 @@ database management.
   viewport={{ once: false, amount: 0.2 }}
 >
         <div className="container">
-          <h2>Education</h2>
+          <h2>EDUCATION</h2>
           <div className="card">
             <h3>Bachelor’s Degree</h3>
             <p>B VOC Software Development and System Adminstration  (2022-2025)</p>
@@ -406,7 +424,9 @@ database management.
         { icon: "fab fa-linkedin", link: "https://linkedin.com/in/kamal-ksk" },
         { icon: "fab fa-facebook-f", link: "https://www.facebook.com/kamalskumarksk" },
         { icon: "fab fa-instagram", link: "https://instagram.com/kam4l_7" },
-        { icon: "fa-brands fa-x-twitter", link: "https://x.com/Kamal85191783" }
+        { icon: "fa-brands fa-x-twitter", link: "https://x.com/Kamal85191783" },
+        { icon: "fas fa-envelope", link: "mailto:kamalskumarksk@gmail.com" },
+        { icon: "fas fa-phone", link: "tel:+918157035187" }
       ].map((item, i, arr) => {
 
         const spacing = isMobile ? 60 : 80;
