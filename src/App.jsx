@@ -201,7 +201,7 @@ const sectionAnimation = {
 
 
   <motion.img
-    src="/dist/k.png"
+    src="/k.png"
     alt="Kamal"
     className="hero-img"
     style={{
