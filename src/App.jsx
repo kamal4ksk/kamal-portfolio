@@ -355,7 +355,7 @@ and deployment.
              <div className="timeline-item">
               <h3>React Project Development Intern</h3>
               <p>Developed web application components using React.js and implemented responsive user interfaces.Worked on application development, debugging, and feature implementation.</p>
-              <p>CELLAR INNOVATIVE DEVELOPERS, Ernakulam - February 2024 to March 2024</p>
+              <p>CELLAR INNOVATIVE DEVELOPERS, Ernakulam - February 2025 to March 2025</p>
             </div>
 
             <div className="timeline-item">
